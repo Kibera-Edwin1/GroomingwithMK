@@ -1,89 +1,532 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grooming with MK — Mobile Pet Grooming in Nairobi</title>
+    <meta name="description" content="Nairobi's mobile grooming studio for dogs and cats. Cage-free, breed-specific grooming, done gently, right at your door.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/12.18.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/12.18.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/12.18.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/12.18.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/12.18.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/12.18.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/12.18.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/12.18.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/12.18.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/12.18.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <header class="navigationBar">
+        <a href="#" class="navTitle"><span class="orange">Grooming</span><span class="dark">with MK</span><i class="fa-solid fa-paw"></i></a>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+        <input type="checkbox" id="menuToggle" class="menuToggleInput">
+        <label for="menuToggle" class="menuToggleBtn" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </label>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        <nav class="navList">
+             <input type="checkbox" id="menuToggle" class="menuToggleInput">
+        <label for="menuToggle" class="menuToggleBtn" aria-label="Open menu">
+            <a href="#appointment">Book Appointment</a>
+            <a href="#aboutUs">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact Us</a>
+            <a href="#faqs">FAQs</a>
+            <a href="#contact" class="btnContact navOnlyBtn">Get a Quote</a>
+        </nav>
+    </header>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+    <main>
+        <section class="welcomeBanner">
+            <div class="bannerDetails">
+                <p class="eyebrowless">Mobile grooming, Nairobi</p>
+                <h1>Spa-day grooming that comes to your doorstep.</h1>
+                <p class="bannerLede">Professional, reliable and breed-specific care that leaves your cat or dog looking — and feeling — their absolute best. No carrier, no car ride, no stress.</p>
+                <div class="bannerCtas">
+                    <a href="#appointment" class="btnPrimary">Book an appointment</a>
+                    <a href="#services" class="btnGhost">See our services</a>
+                </div>
+            </div>
+            <div class="bannerImage">
+                <img src="cat.jpeg" alt="A freshly groomed cat relaxing after a home grooming session">
+            </div>
+        </section>
+
+        <div class="statStrip">
+            <div class="statItem">
+                <i class="fa-solid fa-paw"></i>
+                <span>500+ pets groomed</span>
+            </div>
+            <div class="statItem">
+                <i class="fa-solid fa-star"></i>
+                <span>4.9 average rating</span>
+            </div>
+            <div class="statItem">
+                <i class="fa-solid fa-van-shuttle"></i>
+                <span>Fully mobile, no cages</span>
+            </div>
+            <div class="statItem">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Nairobi &amp; Kiambu</span>
+            </div>
+        </div>
+
+        <section id="appointment" class="appointmentSection">
+            <div class="sectionIntro">
+                <h2>Book an appointment</h2>
+                <p>Tell us about your pet and pick a time that works — we'll confirm within a few hours.</p>
+            </div>
+
+            <form action="/appointmentForm" method="POST" id="appointmentForm" name="appointmentForm" class="form">
+                <div class="formRow">
+                    <div class="inputGroup">
+                        <input type="text" name="first_name" id="firstInput" placeholder=" " required>
+                        <label for="firstInput">First name</label>
+                    </div>
+                    <div class="inputGroup">
+                        <input type="text" name="last_name" id="lastInput" placeholder=" " required>
+                        <label for="lastInput">Last name</label>
+                    </div>
+                </div>
+
+                <div class="inputGroup">
+                    <input type="text" name="location" id="locationInput" placeholder=" " required>
+                    <label for="locationInput">Your location</label>
+                </div>
+
+                <div class="formRow">
+                    <div class="inputGroup">
+                        <input type="tel" name="phone_number" id="phoneInput" placeholder=" " required>
+                        <label for="phoneInput">Phone number</label>
+                    </div>
+                    <div class="inputGroup">
+                        <input type="email" name="email" id="emailInput" placeholder=" ">
+                        <label for="emailInput">Email</label>
+                    </div>
+                </div>
+
+                <div class="formRow">
+                    <div class="inputGroup">
+                        <select name="pet_type" id="petTypeInput" required>
+                            <option value="" selected disabled hidden></option>
+                            <option value="Dog">Dog</option>
+                            <option value="Cat">Cat</option>
+                        </select>
+                        <label for="petTypeInput">Type of pet</label>
+                    </div>
+                    <div class="inputGroup">
+                        <select name="service" id="serviceSelectInput" required>
+                            <option value="" selected disabled hidden></option>
+                            <option value="Nail Trimming">Nail Trimming</option>
+                            <option value="Dog Bathing Services">Dog Bathing Services</option>
+                            <option value="Blow Dry and Coat Trim">Blow Dry &amp; Coat Trim</option>
+                            <option value="Dematting Services">Dematting Services</option>
+                            <option value="Ear Cleaning">Ear Cleaning</option>
+                            <option value="Teeth Cleaning">Teeth Cleaning</option>
+                            <option value="Disinfecting Bath">Disinfecting Bath</option>
+                            <option value="Fur Brushing">Fur Brushing</option>
+                            <option value="Pet Boarding and Socialization">Pet Boarding &amp; Socialization</option>
+                        </select>
+                        <label for="serviceSelectInput">Service needed</label>
+                    </div>
+                </div>
+
+                <div class="formRow">
+                    <div class="inputGroup">
+                        <input type="date" name="appointment_date" id="dateInput" required>
+                        <label for="dateInput">Grooming date</label>
+                    </div>
+                    <div class="inputGroup">
+                        <input type="time" name="appointment_time" id="timeInput" required>
+                        <label for="timeInput">Grooming time</label>
+                    </div>
+                </div>
+
+                <div class="btnWrap">
+                    <button type="submit" name="submit" id="btnSubmit">Request appointment</button>
+                </div>
+            </form>
+        </section>
+
+        <div class="mid-banner">
+            <div class="mid-banner-text">
+                <span>Ready when you are.</span>
+                <span>Reach out today and get your pet the best care in Nairobi.</span>
+            </div>
+            <a href="#contact" class="bannerContact">Contact us</a>
+        </div>
+
+        <section id="aboutUs" class="aboutSection">
+            <div class="aboutImage">
+                <img src="dogg.jpg" alt="A calm, freshly groomed dog at home">
+            </div>
+            <div class="aboutDetails">
+                <p class="eyebrowless">About us</p>
+                <h2>Professional groomers, gentle hands.</h2>
+                <p>At Grooming with MK, we believe grooming shouldn't be a chore for you or a stressful ordeal for your pet. We bring a cage-free spa experience directly to your doorstep, so there's no carrier and no car ride — just a calmer, happier pet. Our groomers treat every cat and dog with the patience and care they deserve, pairing years of hands-on experience with a gentle touch to keep them healthy, comfortable and looking their best.</p>
+                <p>We're a Nairobi-based mobile grooming team offering everything from a simple bath and brush to a full groom: bathing, medicated baths, blow-dry and coat trim, dematting, nail trims, ear cleaning, teeth cleaning and sanitary trimming. We're animal people first — this is a service we love doing, in the comfort of your own home.</p>
+                <div class="aboutChips">
+                    <span><i class="fa-solid fa-house"></i> At your doorstep</span>
+                    <span><i class="fa-solid fa-box-open"></i> No cages, ever</span>
+                    <span><i class="fa-solid fa-heart"></i> Patient with anxious pets</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="servicesSection">
+            <div class="sectionIntro">
+                <h2>Services</h2>
+                <p>A full range of grooming, tailored to your pet's coat, breed and temperament.</p>
+            </div>
+
+            <div class="serviceDetails">
+                <div class="service-card">
+                    <img src="Teethcleaning.jpg" alt="Teeth cleaning service">
+                    <span>Teeth Cleaning</span>
+                </div>
+                <div class="service-card">
+                    <img src="nailclipping.jpg" alt="Nail clipping service">
+                    <span>Nail Clipping</span>
+                </div>
+                <div class="service-card">
+                    <img src="dogbath.jpg" alt="Dog bath and shampooing service">
+                    <span>Bath &amp; Shampooing</span>
+                </div>
+                <div class="service-card">
+                    <img src="blowdry.jpg" alt="Blow dry service">
+                    <span>Blow-Dry</span>
+                </div>
+                <div class="service-card">
+                    <img src="coattrimming.webp" alt="Coat trimming service">
+                    <span>Coat Trimming</span>
+                </div>
+                <div class="service-card">
+                    <img src="dematting.jpg" alt="Dematting service">
+                    <span>Dematting</span>
+                </div>
+                <div class="service-card">
+                    <img src="earcleaning.jpg" alt="Ear cleaning service">
+                    <span>Ear Cleaning</span>
+                </div>
+                <div class="service-card">
+                    <img src="furbrushing.avif" alt="Fur brushing service">
+                    <span>Fur Brushing</span>
+                </div>
+                <div class="service-card">
+                    <img src="expression.jpg" alt="Anal gland expression service">
+                    <span>Anal Gland Expression</span>
+                </div>
+                <div class="service-card">
+                    <img src="deshredding.webp" alt="Dog deshedding service">
+                    <span>Deshedding</span>
+                </div>
+            </div>
+
+            <div class="service-banner">
+                <i class="fa-solid fa-paw"></i>
+                <span>Treat your pets to the spa day they deserve.</span>
+                <a href="#appointment" class="btnPrimary btnOnDark">Book now</a>
+            </div>
+
+            <div class="serviceList">
+                <div class="service-left">
+                    <img src="dog.avif" alt="A relaxed dog mid-grooming session">
+                </div>
+
+                <div class="service-right">
+                    <div class="service-item">
+                        <button class="service-header" aria-expanded="false">
+                            <span>Dog Disinfection Bath</span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="service-content">
+                            <p>The growing demand for dog disinfection baths in Nairobi reflects a rising awareness of proper pet hygiene. These baths keep dogs clean and protected from harmful germs while supporting a safer home for the whole family. As responsible pet ownership grows, professional sanitisation has become an essential part of keeping pets healthy.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <button class="service-header" aria-expanded="false">
+                            <span>Pet Fur &amp; Hair Brushing</span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="service-content">
+                            <p>Regular brushing does more than improve appearance — it prevents matting, promotes a healthy coat and keeps your pet comfortable. It's also one of the easiest ways to bond with your pet, and our groomers make it a calm, unhurried part of every visit.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <button class="service-header" aria-expanded="false">
+                            <span>Medicated Dog Bathing</span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="service-content">
+                            <p>Medicated baths help manage skin conditions, reduce parasites, treat infections and ease allergy-related discomfort. Using suitable products and professional technique, we help improve skin and coat condition for a happier, more comfortable dog.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <button class="service-header" aria-expanded="false">
+                            <span>Teeth Cleaning</span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="service-content">
+                            <p>Good oral hygiene is about more than fresh breath. Our teeth cleaning gives personalised attention to keep teeth clean and healthy, improving comfort and overall wellness for the long run.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <button class="service-header" aria-expanded="false">
+                            <span>Dematting</span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="service-content">
+                            <p>Removing tangled, matted fur is about comfort as much as appearance — mats can pull on skin and trap moisture. Our dematting is done patiently and gently, an important part of responsible ongoing coat care.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <button class="service-header" aria-expanded="false">
+                            <span>Sanitary Trimming</span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="service-content">
+                            <p>Sanitary trims keep the areas prone to soiling clean and comfortable. It's a small service with an outsized effect on hygiene, and one we include as standard in most grooming packages.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <button class="service-header" aria-expanded="false">
+                            <span>Blow-Dry &amp; Coat Trim</span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="service-content">
+                            <p>A proper blow-dry and trim is about more than a stylish finish — it supports coat health and comfort too. With the right tools and technique, we leave coats clean, even and well-kept.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <button class="service-header" aria-expanded="false">
+                            <span>Nail Trimming</span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="service-content">
+                            <p>Overgrown nails can cause real discomfort and even affect how your pet walks. Regular, careful trims keep paws healthy and your pet moving with ease and confidence.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <button class="service-header" aria-expanded="false">
+                            <span>Ear Cleaning</span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="service-content">
+                            <p>Gentle, thorough ear cleaning reduces the risk of infection and helps us spot potential issues early. It's a quick step that plays a real role in your pet's long-term comfort.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <button class="service-header" aria-expanded="false">
+                            <span>Pet Boarding &amp; Socialization</span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="service-content">
+                            <p>Your pet can stay at our facilities, play and socialise with other animals, while you take care of what you need to. A relaxed, supervised break for them — and one less thing for you to worry about.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contactSection">
+            <div class="sectionIntro">
+                <h2>Contact us</h2>
+                <p>Schedule your pet's grooming session today, or ask us anything first.</p>
+            </div>
+
+            <div class="contactRow">
+                <div class="contactCards">
+                    <div class="contactCard">
+                        <div class="contactCardIcon"><i class="fa-solid fa-phone-flip"></i></div>
+                        <div>
+                            <span>Call us</span>
+                            <p>0791 531 367</p>
+                        </div>
+                    </div>
+                    <div class="contactCard">
+                        <div class="contactCardIcon"><i class="fa-brands fa-whatsapp"></i></div>
+                        <div>
+                            <span>WhatsApp us</span>
+                            <p>0791 531 367</p>
+                        </div>
+                    </div>
+                    <div class="contactCard">
+                        <div class="contactCardIcon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <span>Based in</span>
+                            <p>Nairobi, Kenya</p>
+                        </div>
+                    </div>
+                    <div class="contactCard">
+                        <div class="contactCardIcon"><i class="fa-brands fa-instagram"></i></div>
+                        <div>
+                            <span>Follow along</span>
+                            <p><i class="fa-brands fa-instagram"></i> &nbsp;<i class="fa-brands fa-facebook"></i></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contactForm">
+                    <h3>Send us a message</h3>
+                    <form action="/contactForm" name="contactForm" id="directContact" method="POST">
+                        <div class="inputGroup">
+                            <input type="text" name="name" id="contactName" placeholder=" " required>
+                            <label for="contactName">Your name</label>
+                        </div>
+                        <div class="inputGroup">
+                            <input type="email" name="email" id="contactEmail" placeholder=" " required>
+                            <label for="contactEmail">Email</label>
+                        </div>
+                        <div class="inputGroup">
+                            <input type="tel" name="phone_number" id="contactNumber" placeholder=" " required>
+                            <label for="contactNumber">Phone number</label>
+                        </div>
+                        <button type="submit" id="btnContactSubmit">Send message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="faqs" class="faqsSection">
+            <div class="sectionIntro">
+                <h2>Frequently asked questions</h2>
+                <p>Got questions? We've probably answered them already.</p>
+            </div>
+
+            <div class="faqs-content">
+                <div class="faqs-item">
+                    <button class="faqs-header" aria-expanded="false">
+                        <span>What is mobile pet grooming?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faqs-answers">
+                        <p>Mobile pet grooming is a convenient service where a professional groomer brings a fully equipped grooming kit to your home to care for your pet.</p>
+                    </div>
+                </div>
+
+                <div class="faqs-item">
+                    <button class="faqs-header" aria-expanded="false">
+                        <span>How do I schedule an appointment?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faqs-answers">
+                        <p>Call us directly for immediate assistance, or fill out our booking form above and we'll get back to you to confirm your appointment.</p>
+                    </div>
+                </div>
+
+                <div class="faqs-item">
+                    <button class="faqs-header" aria-expanded="false">
+                        <span>What areas do you serve?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faqs-answers">
+                        <p>We currently serve Nairobi, Kiambu and surrounding areas. Contact us to confirm whether we cover your location.</p>
+                    </div>
+                </div>
+
+                <div class="faqs-item">
+                    <button class="faqs-header" aria-expanded="false">
+                        <span>Is mobile grooming safe for anxious pets?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faqs-answers">
+                        <p>Yes — mobile grooming offers a calm, quiet and familiar environment, which is often ideal for anxious, elderly or easily stressed pets.</p>
+                    </div>
+                </div>
+
+                <div class="faqs-item">
+                    <button class="faqs-header" aria-expanded="false">
+                        <span>How long does a grooming session take?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faqs-answers">
+                        <p>Grooming typically takes 1 to 2 hours, depending on your pet's size, coat condition and the services requested.</p>
+                    </div>
+                </div>
+
+                <div class="faqs-item">
+                    <button class="faqs-header" aria-expanded="false">
+                        <span>What pets do you groom?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faqs-answers">
+                        <p>We specialise in grooming both dogs and cats, of all breeds and sizes.</p>
+                    </div>
+                </div>
+
+                <div class="faqs-item">
+                    <button class="faqs-header" aria-expanded="false">
+                        <span>What if I need to cancel or reschedule?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faqs-answers">
+                        <p>Plans change — we understand. Just give us at least 24 hours' notice to reschedule or cancel without a fee.</p>
+                    </div>
+                </div>
+
+                <div class="faqs-item">
+                    <button class="faqs-header" aria-expanded="false">
+                        <span>What if I live in an apartment or busy estate?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faqs-answers">
+                        <p>No problem — as long as there's a balcony or a wet room to work in, we can groom your pet right where you live.</p>
+                    </div>
+                </div>
+
+                <div class="faqs-item">
+                    <button class="faqs-header" aria-expanded="false">
+                        <span>Do I need to provide water or electricity?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faqs-answers">
+                        <p>Yes — to give your pet the best possible service, we'll need access to a standard electrical outlet and a water connection.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <span class="footerLogo"><span class="orange">Grooming</span><span>with MK</span><i class="fa-solid fa-paw"></i></span>
+                <p>Nairobi's mobile grooming studio for dogs and cats — cage-free, gentle, and right at your door.</p>
+            </div>
+            <div class="quick-links">
+                <h4>Quick links</h4>
+                <a href="#aboutUs">About Us</a>
+                <a href="#appointment">Book Appointment</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact Us</a>
+                <a href="#faqs">FAQs</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <div class="contact-link"><i class="fa-solid fa-phone-flip"></i><span>0791 531 367</span></div>
+                <div class="contact-link"><i class="fa-solid fa-envelope"></i><span>groomingwithmk@gmail.com</span></div>
+                <div class="contact-link"><i class="fa-brands fa-whatsapp"></i><span>0791 531 367</span></div>
+            </div>
+            <div class="footer-location">
+                <h4>Find us</h4>
+                <div class="location-links"><i class="fa-solid fa-location-dot"></i><span>We are fully mobile — Nairobi &amp; Kiambu</span></div>
+                <div class="social-link">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Grooming with MK. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
