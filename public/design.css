@@ -1,0 +1,389 @@
+h1{
+    color:#F04A18;
+}
+.appointment-table{
+    background-color: #fff;
+    height: auto;
+    width: 100%;
+    
+}
+.appointment-summary{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    padding-top: 100px;
+}
+.summary-card{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: antiquewhite;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    width: 250px;
+    height: 150px;
+    margin: 10px 10px 10px 10px;
+}
+h4{
+    color: #0B4A50;
+    font-size: 15px;
+    font-family: 'Baloo 2',sans-serif;
+}
+#weeksAppointments{
+    font-size: 50px;
+    color: #F04A18;
+}
+#totalAppointments{
+    font-size: 50px;
+    color: #F04A18;
+}
+tr{
+    
+    padding: 10px 10px 10px 10px;
+}
+th{
+    color: #0B4A50;
+}
+/* Header */
+.appointment-table th {
+    background-color:#0B4A50 ;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Cells */
+.appointment-table td {
+    padding: 5px 6px;
+    border-bottom: 1px solid #0B4A50;
+    font-size: 18px;
+}
+
+/* Alternating Rows */
+.appointment-table tbody tr:nth-child(odd) {
+    background-color: beige;
+}
+
+.appointment-table tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+/* Hover Effect */
+.appointment-table tbody tr:hover {
+    background-color: #dbeafe;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+.status-btn{
+    background-color: none;
+    border: none;
+    font-size: 15px;
+}
+/* history section */
+#history{
+    width: auto;
+    height: fit-content;
+    background-color: beige;
+    border-radius: 10px;
+    margin-top: 100px;
+    padding-bottom: 50px;
+}
+.history-title{
+    display: flex;
+    justify-content: center;
+}
+.history-title  h2{
+    font-size: 32px;
+    color: #F04A18;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.history-buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+.week-btn{
+    background-color: #4DB6AC;
+    color: #fff;
+    height: 40px;
+    width: 120px;
+    cursor: pointer;
+}
+.month-btn{
+    background-color: #0B7A75;
+    color: #fff;
+    height: 40px;
+    width: 120px;
+    cursor: pointer;
+}
+.three-btn{
+    background-color: #0B4A50;
+    color: #fff;
+    height: 40px;
+    width: 120px;
+    cursor: pointer;
+}
+.six-btn{
+    background-color: #0B4A50;
+    color: #fff;
+    height: 40px;
+    width: 120px;
+    cursor: pointer;
+}
+.year-btn{
+    background-color: #003366;
+    color: #fff;
+    height: 40px;
+    width: 120px;
+    cursor: pointer;
+}
+/* Hover */
+.history-buttons button:hover {
+    opacity: 0.85;
+}
+/* Header */
+.history-table th {
+    background-color:#0B4A50 ;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Cells */
+.history-table td {
+    padding: 5px 6px;
+    border-bottom: 1px solid #0B4A50;
+    font-size: 18px;
+}
+
+/* Alternating Rows */
+.history-table tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.history-table tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+/* Hover Effect */
+.history-table tbody tr:hover {
+    background-color: #dbeafe;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+/* Report section */
+.report-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+#report {
+    background-color: #f8fafc;
+}
+
+.report-title {
+    display: flex;
+    justify-content: center;
+}
+
+.report-title h2 {
+    color: #F04A18;
+}
+
+.report-table {
+    background-color: #f8fafc;
+}
+
+.summaryButtons {
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+    grid-template-rows: repeat(2, 100px);
+    gap: 15px;
+}
+
+.summaryButtons button {
+    width: 150px;
+    height: 100px;
+    border: none;
+    border-radius: 10px;
+    background-color: #0B4A50;
+    color: #fff;
+    cursor: pointer;
+}
+
+.summaryButtons button i {
+    font-size: 15px;
+    color: #fff;
+}
+
+.summary-group {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.report-group {
+    display: flex;
+    flex-direction: column;
+}
+
+#report h2 {
+    color: #F04A18;
+}
+
+.report-result {
+    width: 400px;
+    height: 200px;
+    background-color: antiquewhite;
+    border-radius: 10px;
+}
+#reportResult p{
+    font-size: 25px;
+    color: #0B4A50;
+}
+#statClientCount{
+    font-size: 25px;
+    color: #003366;
+}
+#statLocationCount{
+    font-size: 25px;
+    color: #003366;
+}
+#statLocation{
+    font-size: 25px;
+    color: #0B4A50;
+}
+#statService{
+    font-size: 25px;
+    color: #0B4A50;
+}
+#statServiceCount{
+    font-size: 25px;
+    color: #003366;
+}
+.report-result p {
+    color: #0B4A50;
+    font-size: 20px;
+}
+/* Hover */
+.summaryButtons button:hover {
+    opacity: 0.85;
+}
+/* Header */
+.report-table th {
+    background-color:#0B4A50 ;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Cells */
+.report-table td {
+    padding: 5px 6px;
+    border-bottom: 1px solid #0B4A50;
+    font-size: 18px;
+}
+
+/* Alternating Rows */
+.report-table tbody tr:nth-child(odd) {
+    background-color: bisque;
+}
+
+.report-table tbody tr:nth-child(even) {
+    background-color: beige;
+}
+
+/* Hover Effect */
+.report-table tbody tr:hover {
+    background-color: #dbeafe;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+ /* =========================================================
+   TABLETS
+   769px - 1024px
+========================================================= */ 
+
+@media (min-width: 769px) and (max-width: 1024px){
+
+/* Header */
+.appointment-table th {
+    background-color:#0B4A50 ;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+/* Cells */
+.appointment-table td {
+    padding: 5px 6px;
+    border-bottom: 1px solid #0B4A50;
+    font-size: 15px;
+}
+
+/* Alternating Rows */
+.appointment-table tbody tr:nth-child(odd) {
+    background-color: beige;
+}
+
+.appointment-table tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+/* Hover Effect */
+.appointment-table tbody tr:hover {
+    background-color: #dbeafe;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+}
+/* =========================================================
+   MOBILE
+   0px - 768px
+========================================================= */
+
+@media (max-width: 768px) {
+/* Header */
+.appointment-table th {
+    background-color:#0B4A50 ;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    font-size: 8px;
+    font-weight: 400;
+}
+
+/* Cells */
+.appointment-table td {
+    padding: 5px 6px;
+    border-bottom: 1px solid #0B4A50;
+    font-size: 8px;
+}
+
+/* Alternating Rows */
+.appointment-table tbody tr:nth-child(odd) {
+    background-color: beige;
+}
+
+.appointment-table tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+/* Hover Effect */
+.appointment-table tbody tr:hover {
+    background-color: #dbeafe;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+}

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grooming with MK Appointments — Mobile Pet Grooming in Nairobi</title>
+    <meta name="description" content="Nairobi's mobile grooming studio for dogs and cats. Cage-free, breed-specific grooming, done gently, right at your door.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="design.css">
+</head>
+<body>
+
+    <header class="navigationBar">
+        <a href="#" class="navTitle"><span class="orange">Grooming</span><span class="dark">with MK</span><i class="fa-solid fa-paw"></i></a>
+
+        <input type="checkbox" id="menuToggle" class="menuToggleInput">
+        <label for="menuToggle" class="menuToggleBtn" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </label>
+
+        <nav class="navList">
+            <input type="checkbox" id="menuToggle" class="menuToggleInput">
+        <label for="menuToggle" class="menuToggleBtn" aria-label="Open menu">
+            <a href="#viewAppointments">View Appointments</a>
+                <a href="#history">History</a>
+                <a href="#report">Report</a>
+        </nav>
+    </header>
+        <div class="appointment-summary">
+            <div class="summary-card">
+                <h4>Total Appointments</h4>
+                <span id="totalAppointments">0</span>
+            </div>
+
+            <div class="summary-card">
+                <h4>This week's Appointments</h4>
+                <span id="weeksAppointments">0</span>
+            </div>
+        </div>
+       <section id="viewAppointments">
+        <div class="viewAppointment">
+         <h1>Appointments</h1>
+
+        <div class="appointment-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Last Name</th>
+                        <th>First Name</th>
+                        <th>Phone Number</th>
+                        <th>Location</th>
+                        <th>Pet Type</th>
+                        <th>Service</th>
+                        <th>Appointment Date</th>
+                        <th>Appointment Time</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="appointmentBody">
+    
+                </tbody>
+            </table>
+        </div>
+       </div>
+       </section>
+       <section id="history">
+        <div class="history-title">
+            <h2>History</h2>
+        </div>
+        <div class="history-buttons">
+            <button class="week-btn"onclick="loadHistory('week')">Last One Week</button>
+            <button class="month-btn" onClick="loadHistory('month')">Last One Month</button>
+            <button class="six-btn" onClick="loadHistory('6months')">Last Six Months</button>
+            <button class="year-btn" onClick="loadHistory('year')">Last One Year</button>
+        </div>
+        <div class="history-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Last Name</th>
+                        <th>First Name</th>
+                        <th>Phone Number</th>
+                        <th>Location</th>
+                        <th>Pet Type</th>
+                        <th>Service</th>
+                        <th>Appointment Date</th>
+                        <th>Appointment Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="historyBody">
+
+                </tbody>
+            </table>
+        </div>
+       </section>
+       <section id="report">
+        <div class="report-title">
+            <h2>Report</h2>
+        </div>
+        <div class="report-buttons">
+            <button class="week-btn"onclick="loadReport('week')">Last One Week</button>
+            <button class="month-btn" onClick="loadReport('month')">Last One Month</button>
+            <button class="three-btn" onClick="loadReport('3months')">Last Three Months</button>
+            <button class="six-btn" onClick="loadReport('6months')">Last Six Months</button>
+            <button class="year-btn" onClick="loadReport('year')">Last One Year</button>  
+        </div>
+        <div class="report-table">
+            <table>
+                <thead>
+                    <tr>
+                        <td>Date</td>
+                        <td>Total Appointments</td>
+                        <td>Completed</td>
+                        <td>Cancelled</td>
+                        <td>Pending</td>
+                    </tr>
+                </thead>
+                <tbody id="reportBody">
+                    
+                </tbody>
+            </table>
+        </div>
+     <h2>Report Statistics</h2>
+       <div class="summary-group">
+         <div class="summaryButtons">
+            <button onclick="showReportStat('total')">
+                <i class="fa-solid fa-calendar-check"></i>
+                Total Appointments
+            </button>
+
+            <button onclick="showReportStat('client')">
+                <i class="fa-solid fa-user"></i>
+                Top Client
+            </button>
+
+            <button onclick="showReportStat('location')">
+                <i class="fa-solid fa-location-dot"></i>
+                Top Location
+            </button>
+
+            <button onclick="showReportStat('service')">
+                <i class="fa-solid fa-scissors"></i>
+                Top Service
+            </button>
+        </div>
+       <div class="report-group">
+        <div class="report-result" id="reportResult">
+            
+            <p>Select a report statistic.</p>
+        </div>
+       </div>
+       </div>
+       </section>
+        <script>
+async function loadAppointments() {
+
+    try {
+
+        const response = await fetch("/api/appointments");
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch appointments");
+        }
+
+        const data = await response.json();
+
+        console.log(data);
+
+        // Store appointments in a variable
+        const appointments = data.appointments;
+
+
+        // =========================
+        // TOTAL APPOINTMENTS
+        // =========================
+
+        document.getElementById("totalAppointments").textContent =
+            appointments.length;
+
+
+        // =========================
+        // THIS WEEK'S APPOINTMENTS
+        // =========================
+
+        const today = new Date();
+
+        // Find Monday of the current week
+        const startOfWeek = new Date(today);
+
+        const day = today.getDay();
+
+        const difference = day === 0 ? 6 : day - 1;
+
+        startOfWeek.setDate(today.getDate() - difference);
+        startOfWeek.setHours(0, 0, 0, 0);
+
+
+        // Find Sunday of the current week
+        const endOfWeek = new Date(startOfWeek);
+
+        endOfWeek.setDate(startOfWeek.getDate() + 6);
+        endOfWeek.setHours(23, 59, 59, 999);
+
+
+        // Count appointments this week
+        const thisWeeksAppointments = appointments.filter(appointment => {
+
+            const appointmentDate =
+                new Date(appointment.appointment_date);
+
+            return appointmentDate >= startOfWeek &&
+                   appointmentDate <= endOfWeek;
+
+        });
+
+
+        document.getElementById("weeksAppointments").textContent =
+            thisWeeksAppointments.length;
+
+
+        // =========================
+        // DISPLAY APPOINTMENTS
+        // =========================
+
+        const tableBody = document.getElementById("appointmentBody");
+
+        tableBody.innerHTML = "";
+
+
+        if (appointments.length === 0) {
+
+            tableBody.innerHTML = `
+                <tr>
+                    <td colspan="10">
+                        No appointments found.
+                    </td>
+                </tr>
+            `;
+
+            return;
+        }
+
+
+        appointments.forEach(appointment => {
+
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td>${appointment.appointment_id}</td>
+                <td>${appointment.last_name}</td>
+                <td>${appointment.first_name}</td>
+                <td>${appointment.phone_number}</td>
+                <td>${appointment.location}</td>
+                <td>${appointment.pet_type}</td>
+                <td>${appointment.service}</td>
+                <td>${appointment.appointment_date.split("T")[0]}</td>
+                <td>${appointment.appointment_time}</td>
+                <td>
+    <select class="status-btn" onchange="updateStatus(${appointment.appointment_id}, this.value)">
+        <option value="Pending"
+            ${appointment.status === "Pending" ? "selected" : ""}>
+            Pending
+        </option>
+
+        <option value="Completed"
+            ${appointment.status === "Completed" ? "selected" : ""}>
+            Completed
+        </option>
+
+        <option value="Cancelled"
+            ${appointment.status === "Cancelled" ? "selected" : ""}>
+            Cancelled
+        </option>
+    </select>
+</td>
+                <td>
+    <button class="delete-btn" onclick="deleteAppointment(${appointment.appointment_id})">
+        <i class="fa-solid fa-trash"></i>
+    </button>
+</td>
+            `;
+
+            tableBody.appendChild(row);
+
+        });
+
+    } catch (error) {
+
+        console.error("Error loading appointments:", error);
+
+    }
+
+}
+async function updateStatus(id, status) {
+
+    try {
+
+        const response = await fetch(
+            `/api/appointments/${id}/status`,
+            {
+                method: "PUT",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    status: status
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || "Failed to update status");
+        }
+
+        console.log("Status updated:", data);
+
+    } catch (error) {
+
+        console.error("Status update error:", error);
+
+        alert("Failed to update appointment status");
+
+    }
+}
+
+async function deleteAppointment(id) {
+
+    const confirmDelete = confirm(
+        "Are you sure you want to delete this appointment?"
+    );
+
+    if (!confirmDelete) {
+        return;
+    }
+
+    try {
+
+        const response = await fetch(`/api/appointments/${id}`, {
+            method: "DELETE"
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || "Failed to delete appointment");
+        }
+
+        alert("Appointment deleted successfully");
+
+        // Reload appointments
+        loadAppointments();
+
+    } catch (error) {
+
+        console.error("Delete error:", error);
+
+        alert("Failed to delete appointment");
+
+    }
+}
+loadAppointments();
+
+//load History
+async function loadHistory(period) {
+
+    try {
+        const response = await fetch(
+            `/api/appointments/history?period=${period}`
+        );
+
+        if (!response.ok) {
+            throw new Error("Failed to load history");
+        }
+
+        const data = await response.json();
+
+        const historyBody = document.getElementById("historyBody");
+
+        historyBody.innerHTML = "";
+
+        if (data.appointments.length === 0) {
+            historyBody.innerHTML = `
+            <tr>
+                <td colspan="7">
+                    No Appointment History Found !!
+                </td>
+            </tr>
+            `;
+
+            return;
+        }
+
+        data.appointments.forEach(appointment => {
+
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+            <td>
+                ${appointment.appointment_id}
+                ${appointment.first_name}
+                ${appointment.last_name}
+            </td>
+            <td>${appointment.phone_number}</td>
+            <td>${appointment.pet_type}</td>
+            <td>${appointment.location}</td>
+            <td>${appointment.service}</td>
+            <td>${appointment.appointment_date.split("T")[0]}</td>
+            <td>${appointment.appointment_time}</td>
+            `;
+
+            historyBody.appendChild(row);
+        });
+    }catch (error) {
+        console.error("History error:",error)
+    }
+}
+
+//Report section data compilation
+async function loadReport(period) {
+    try {
+        const response = await fetch(
+            `/api/appointments/report?period=${period}`
+        );
+
+        if (!response.ok) {
+            throw new Error("Failed to load Report");
+        }
+
+        const data = await response.json();
+
+        const reportBody = document.getElementById("reportBody");
+
+        reportBody.innerHTML="";
+
+        if (data.appointments.length === 0) {
+            reportBody.innerHTML = `
+            <tr>
+                <td colspan="7">
+                    No Report Found !!
+                </td>
+            </tr>
+            `;
+
+            return;
+        }
+
+//Display report row
+        data.appointments.forEach(report =>{
+
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+            <td>${report.date.split("T")[0]}</td>
+            <td>${report.totalAppointments}</td>
+            <td>${report.completed}</td>
+            <td>${report.cancelled}</td>
+            <td>${report.pending}</td>
+            `
+            reportBody.appendChild(row);
+        });
+
+    }catch (error) {
+        console.error("Report error:", error);
+    }
+}
+
+//Summary reports
+function showReportStat(type) {
+
+    const result = document.getElementById("reportResult");
+
+    if (type === "total") {
+
+        result.innerHTML = `
+            <h3>Total Appointments</h3>
+            <p id="statTotal">0</p>
+        `;
+
+    }
+
+    else if (type === "client") {
+
+        result.innerHTML = `
+            <h3>Most Booked Client</h3>
+            <p id="statClient">-</p>
+            <small id="statClientCount">0 appointments</small>
+        `;
+
+    }
+
+    else if (type === "location") {
+
+        result.innerHTML = `
+            <h3>Most Frequent Location</h3>
+            <p id="statLocation">-</p>
+            <small id="statLocationCount">0 appointments</small>
+        `;
+
+    }
+
+    else if (type === "service") {
+
+        result.innerHTML = `
+            <h3>Most Selected Service</h3>
+            <p id="statService">-</p>
+            <small id="statServiceCount">0 appointments</small>
+        `;
+
+    }
+}
+        </script>
+    </body>
+</html>
